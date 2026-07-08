@@ -1,959 +1,282 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Natu Liver - Landing Page Đặt Hàng</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Giải Độc Gan Natu Liver - Landing Page Template</title>
+  <meta name="description" content="Template landing page thực phẩm bảo vệ sức khỏe hỗ trợ giải độc gan, mát gan, bảo vệ chức năng gan.">
   <style>
-    :root {
-      --green: #0f6b2f;
-      --green-dark: #06451d;
-      --green-light: #eaf7ed;
-      --red: #e52521;
-      --yellow: #ffd34d;
-      --text: #183326;
-      --muted: #65746b;
-      --bg: #fbfff9;
-      --card: #ffffff;
-      --border: #dcebdc;
-      --shadow: 0 14px 40px rgba(0, 80, 30, 0.12);
-      --radius: 22px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.55;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .topbar-inner {
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 900;
-      color: var(--green);
-      letter-spacing: 0.5px;
-    }
-
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1ca047, #cbe879);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 24px;
-    }
-
-    .top-actions {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      font-size: 14px;
-      color: var(--green-dark);
-      font-weight: 700;
-    }
-
-    .top-actions span {
-      display: flex;
-      gap: 7px;
-      align-items: center;
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at 70% 30%, rgba(188, 226, 116, 0.55), transparent 34%),
-        linear-gradient(135deg, #fffdf1 0%, #f4fff3 50%, #e8f7dd 100%);
-      padding: 46px 0 42px;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 440px 320px;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      color: var(--green);
-      font-weight: 900;
-      letter-spacing: 1.2px;
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 6vw, 78px);
-      line-height: 0.95;
-      color: var(--green-dark);
-      margin: 0 0 12px;
-      letter-spacing: -2px;
-    }
-
-    .subtitle {
-      font-size: clamp(22px, 3vw, 34px);
-      line-height: 1.15;
-      font-weight: 900;
-      color: var(--green);
-      margin: 0 0 24px;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 10px;
-      margin: 0 0 22px;
-      padding: 0;
-      list-style: none;
-      font-weight: 700;
-    }
-
-    .check-list li::before {
-      content: "✓";
-      display: inline-grid;
-      place-items: center;
-      width: 23px;
-      height: 23px;
-      background: var(--green);
-      color: #fff;
-      border-radius: 50%;
-      margin-right: 8px;
-      font-size: 14px;
-    }
-
-    .price-box {
-      background: rgba(255,255,255,0.86);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-      max-width: 390px;
-      box-shadow: var(--shadow);
-    }
-
-    .old-price {
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .old-price s {
-      color: #222;
-    }
-
-    .new-price {
-      font-size: 40px;
-      color: var(--red);
-      font-weight: 900;
-      line-height: 1;
-      margin: 6px 0 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 54px;
-      border-radius: 14px;
-      padding: 0 24px;
-      background: var(--green);
-      color: #fff;
-      font-weight: 900;
-      border: 0;
-      cursor: pointer;
-      box-shadow: 0 10px 26px rgba(4, 80, 30, 0.22);
-      width: 100%;
-      font-size: 18px;
-    }
-
-    .btn.red {
-      background: var(--red);
-    }
-
-    .product-stage {
-      position: relative;
-      min-height: 430px;
-      display: grid;
-      place-items: center;
-    }
-
-    .product-card {
-      width: 280px;
-      height: 380px;
-      border-radius: 26px 26px 38px 38px;
-      background: linear-gradient(90deg, #332018, #71452c 32%, #2c1710 70%, #140b07);
-      box-shadow: 0 28px 50px rgba(65, 38, 20, 0.28);
-      position: relative;
-      display: grid;
-      place-items: center;
-      transform: rotate(-1deg);
-    }
-
-    .product-card::before {
-      content: "";
-      position: absolute;
-      top: -38px;
-      width: 185px;
-      height: 58px;
-      border-radius: 16px 16px 10px 10px;
-      background: linear-gradient(90deg, #b27a27, #f8df8c, #b97b26);
-      box-shadow: inset 0 -8px 12px rgba(0,0,0,0.13);
-    }
-
-    .product-label {
-      width: 235px;
-      min-height: 170px;
-      background: #fbfff5;
-      border-radius: 12px;
-      text-align: center;
-      padding: 18px 14px;
-      border: 4px solid #d9ead5;
-    }
-
-    .product-label b {
-      display: block;
-      font-size: 38px;
-      color: var(--green);
-      line-height: 1;
-    }
-
-    .product-label small {
-      font-weight: 800;
-      color: #9a7a25;
-    }
-
-    .discount {
-      position: absolute;
-      left: 10px;
-      bottom: 70px;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: var(--red);
-      color: white;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      font-weight: 900;
-      font-size: 24px;
-      border: 5px solid #ffe4a4;
-      transform: rotate(-8deg);
-    }
-
-    .trust-card {
-      background: rgba(255,255,255,0.9);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .trust-card h3 {
-      margin: 0 0 14px;
-      color: var(--green-dark);
-      text-align: center;
-      font-size: 18px;
-      background: var(--green-light);
-      padding: 10px;
-      border-radius: 12px;
-    }
-
-    .trust-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .trust-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      font-size: 14px;
-      font-weight: 700;
-      border-bottom: 1px solid #eef5ec;
-      padding-bottom: 12px;
-    }
-
-    .icon {
-      min-width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--green-light);
-      display: grid;
-      place-items: center;
-      color: var(--green);
-      font-weight: 900;
-    }
-
-    section {
-      padding: 48px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--green-dark);
-      font-size: clamp(26px, 4vw, 38px);
-      line-height: 1.15;
-      margin: 0 0 28px;
-      text-transform: uppercase;
-    }
-
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .audience-card,
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .audience-img {
-      height: 130px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #d5efd4, #fff4ce);
-      display: grid;
-      place-items: center;
-      font-size: 48px;
-      margin-bottom: 14px;
-    }
-
-    .audience-card b {
-      color: var(--green-dark);
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      align-items: stretch;
-    }
-
-    .benefit-visual {
-      min-height: 380px;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle, rgba(255, 204, 56, 0.7), transparent 30%),
-        radial-gradient(circle at 20% 80%, rgba(69, 176, 82, 0.24), transparent 35%),
-        #f4fff0;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      font-size: 120px;
-    }
-
-    .ingredient-table {
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 16px;
-      background: #f9fff4;
-    }
-
-    .ingredient-table td {
-      padding: 13px 14px;
-      border-bottom: 1px solid var(--border);
-      font-weight: 700;
-    }
-
-    .ingredient-table td:last-child {
-      text-align: right;
-      color: var(--green);
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr 1fr;
-      gap: 18px;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .badge {
-      background: var(--green-light);
-      color: var(--green-dark);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 9px 13px;
-      font-weight: 900;
-      font-size: 13px;
-    }
-
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .review-head {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #d8e7ff, #fff0c9);
-      display: grid;
-      place-items: center;
-      font-size: 26px;
-    }
-
-    .stars {
-      color: #f5aa00;
-      letter-spacing: 1px;
-      font-size: 18px;
-    }
-
-    .order-section {
-      background: linear-gradient(180deg, #f8fff1, #ffffff);
-    }
-
-    .combo-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1.1fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .combo {
-      text-align: center;
-      position: relative;
-    }
-
-    .combo.popular {
-      border: 3px solid #f7c833;
-    }
-
-    .combo h3 {
-      margin: 0 0 10px;
-      color: var(--green-dark);
-      text-transform: uppercase;
-    }
-
-    .mini-bottle {
-      height: 120px;
-      width: 80px;
-      border-radius: 14px 14px 20px 20px;
-      background: linear-gradient(90deg, #29160f, #7a4328, #25140d);
-      margin: 12px auto;
-      position: relative;
-    }
-
-    .mini-bottle::before {
-      content: "";
-      position: absolute;
-      top: -16px;
-      left: 18px;
-      width: 44px;
-      height: 22px;
-      border-radius: 7px 7px 3px 3px;
-      background: linear-gradient(90deg, #bd872d, #f6d87c, #b67a22);
-    }
-
-    .mini-bottle::after {
-      content: "NATU";
-      position: absolute;
-      left: 8px;
-      right: 8px;
-      top: 46px;
-      padding: 8px 0;
-      border-radius: 4px;
-      background: white;
-      color: var(--green);
-      font-weight: 900;
-      font-size: 13px;
-    }
-
-    .combo-price {
-      color: var(--red);
-      font-size: 26px;
-      font-weight: 900;
-      margin: 4px 0;
-    }
-
-    .form-card {
-      background: white;
-      border: 2px solid #e6efcf;
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .form-card h2 {
-      margin: 0 0 6px;
-      color: var(--green-dark);
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .field {
-      width: 100%;
-      min-height: 48px;
-      border: 1px solid #d5ded4;
-      border-radius: 12px;
-      padding: 0 14px;
-      margin-top: 10px;
-      font-size: 15px;
-      background: #fff;
-    }
-
-    textarea.field {
-      padding-top: 14px;
-      min-height: 86px;
-      resize: vertical;
-    }
-
-    .faq {
-      display: grid;
-      gap: 10px;
-      max-width: 760px;
-      margin: 28px auto 0;
-    }
-
-    details {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      padding: 14px 16px;
-      box-shadow: 0 6px 20px rgba(0, 80, 30, 0.06);
-    }
-
-    summary {
-      font-weight: 900;
-      cursor: pointer;
-      color: var(--green-dark);
-    }
-
-    .disclaimer {
-      background: #fff8e5;
-      color: #6f4a00;
-      border: 1px solid #f5d17a;
-      border-radius: 16px;
-      padding: 16px;
-      font-weight: 800;
-      text-align: center;
-      margin-top: 24px;
-    }
-
-    footer {
-      background: var(--green-dark);
-      color: #e9ffe8;
-      padding: 28px 0;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 20px;
-      font-size: 14px;
-    }
-
-    .sticky-cta {
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      z-index: 20;
-      display: none;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .two-col,
-      .info-grid,
-      .combo-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trust-card {
-        order: 3;
-      }
-
-      .audience-grid,
-      .reviews {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .top-actions span:nth-child(2),
-      .top-actions span:nth-child(3) {
-        display: none;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .container {
-        width: min(100% - 22px, 1180px);
-      }
-
-      .topbar-inner {
-        height: 62px;
-      }
-
-      .hero {
-        padding: 28px 0 30px;
-      }
-
-      .hero-grid {
-        gap: 18px;
-      }
-
-      .product-stage {
-        min-height: 360px;
-      }
-
-      .product-card {
-        width: 225px;
-        height: 315px;
-      }
-
-      .product-label {
-        width: 190px;
-      }
-
-      .product-label b {
-        font-size: 30px;
-      }
-
-      .audience-grid,
-      .reviews {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 34px 0;
-      }
-
-      .sticky-cta {
-        display: block;
-      }
-
-      footer {
-        padding-bottom: 86px;
-      }
-    }
+    :root{
+      --green:#0b7a34;--green2:#2dbb52;--dark:#073b1b;--lime:#d6f14d;
+      --gold:#f7c52b;--red:#e4161f;--cream:#fff5bb;
+      --text:#12361f;--muted:#637267;--line:#dce8d4;--shadow:0 18px 45px rgba(4,64,24,.16)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.45}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1180px,calc(100% - 26px));margin:auto}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;border-radius:999px;background:var(--red);color:#fff;font-weight:900;text-transform:uppercase;box-shadow:0 12px 25px rgba(228,22,31,.28);border:0;cursor:pointer}
+    .btn.green{background:var(--green);box-shadow:0 12px 25px rgba(11,122,52,.28)}
+    .btn.full{width:100%;border-radius:12px}
+    .top{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eaf1e5}
+    .topin{height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--dark)}
+    .mark{width:44px;height:44px;border-radius:50%;background:linear-gradient(145deg,var(--green),#bddd28);display:grid;place-items:center;color:#fff;font-size:25px}
+    .nav{display:flex;gap:18px;align-items:center;font-size:14px;font-weight:900;color:var(--dark)}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#f4ffe8 0%,#fff5ba 50%,#eaffdb 100%);padding:28px 0 40px}
+    .hero:after{content:"";position:absolute;right:-110px;bottom:-170px;width:520px;height:520px;border-radius:50%;background:rgba(11,122,52,.09)}
+    .heroGrid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 520px;gap:28px;align-items:center}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .badge{background:#fff;border:2px solid #e2d46b;border-radius:999px;padding:9px 14px;font-weight:900;color:var(--dark);font-size:13px;box-shadow:0 9px 18px rgba(0,0,0,.06)}
+    .badge.red{background:var(--red);border-color:var(--red);color:#fff}
+    h1{font-size:clamp(48px,7vw,96px);line-height:.9;margin:0;color:var(--dark);text-transform:uppercase;letter-spacing:-2px}
+    .heroSub{font-size:clamp(27px,4vw,50px);line-height:1.03;margin:10px 0 16px;color:var(--green);font-weight:900;text-transform:uppercase}
+    .heroList{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px;font-size:19px;font-weight:900}
+    .heroList li{display:flex;gap:10px;align-items:flex-start}
+    .heroList li:before{content:"✓";min-width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:16px}
+    .giftRow{display:flex;gap:14px;flex-wrap:wrap}
+    .gift{background:#fff;border:3px dashed var(--red);border-radius:20px;padding:15px 22px;text-align:center;box-shadow:var(--shadow)}
+    .gift b{display:block;color:var(--red);font-size:42px;line-height:.9;text-transform:uppercase}
+    .gift span{font-weight:900}
+    .heroVisual{min-height:560px;position:relative;display:grid;place-items:center}
+    .sun{position:absolute;width:435px;height:435px;border-radius:50%;background:radial-gradient(circle,#fff9c9 0 31%,#ffd530 32% 55%,transparent 56%);filter:drop-shadow(0 15px 24px rgba(170,128,0,.15))}
+    .bottle{position:relative;z-index:2;width:300px;height:425px;border-radius:28px 28px 44px 44px;background:linear-gradient(90deg,#1a0a05,#7b3f1e 25%,#2d1409 62%,#120603);box-shadow:0 35px 60px rgba(48,21,6,.38);transform:rotate(-2deg)}
+    .bottle:before{content:"";position:absolute;left:62px;top:-55px;width:176px;height:70px;background:linear-gradient(90deg,#a66d18,#fff0a6,#b77819);border-radius:18px 18px 8px 8px;box-shadow:inset 0 -10px 14px rgba(0,0,0,.14)}
+    .label{position:absolute;left:24px;right:24px;top:111px;background:#fffdf0;border:5px solid #d6b348;border-radius:12px;text-align:center;padding:18px 8px;min-height:175px}
+    .label small{font-weight:900;color:#9d7412}.label strong{display:block;margin:6px 0;color:var(--green);font-size:43px;line-height:.95;text-transform:uppercase}
+    .sale{position:absolute;right:18px;top:78px;z-index:5;width:125px;height:125px;border-radius:50%;background:var(--red);color:#fff;border:6px solid #fff5ab;display:grid;place-items:center;text-align:center;font-size:28px;font-weight:900;line-height:.9;transform:rotate(10deg)}
+    .certs{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;z-index:3}
+    .cert{background:#fff;border:2px solid #f0d342;border-radius:18px;padding:14px;text-align:center;font-weight:900;box-shadow:var(--shadow)}
+    section{padding:54px 0}
+    .title{text-align:center;text-transform:uppercase;color:var(--dark);font-size:clamp(28px,4vw,46px);line-height:1.1;margin:0 0 28px}.title span{color:var(--green)}
+    .media{background:linear-gradient(#fff,#f8fff0)}.video{aspect-ratio:16/9;max-width:910px;margin:auto;background:#121212;border-radius:25px;display:grid;place-items:center;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .video:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,122,52,.25),rgba(228,22,31,.18))}
+    .play{position:relative;width:92px;height:92px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-size:36px;box-shadow:0 0 0 12px rgba(255,255,255,.16)}
+    .audience{background:#fbfff3}.audGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.aud{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow);text-align:center}.pic{height:155px;border-radius:18px;background:linear-gradient(135deg,#e8ffdb,#fff0ac);display:grid;place-items:center;font-size:60px;margin-bottom:11px}.aud h3{margin:0;color:var(--green);font-size:18px;text-transform:uppercase}
+    .benefits{background:#fff}.benefitGrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:center}.liver{min-height:430px;border-radius:24px;background:radial-gradient(circle,#ffe35c 0 25%,#fff1aa 26% 45%,#edffe5 46%);display:grid;place-items:center;font-size:170px;box-shadow:var(--shadow)}
+    .bGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bItem{background:#f7fff2;border:1px solid var(--line);border-radius:18px;padding:17px}.bItem b{display:block;text-transform:uppercase;color:var(--green);font-size:19px}
+    .ingredients{background:linear-gradient(180deg,var(--green),var(--dark));color:#fff}.ingredients .title{color:#fff}.ingGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.ing{min-height:165px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:17px;text-align:center}.ing .ico{font-size:42px}.ing h3{color:#fff169;margin:8px 0 5px;text-transform:uppercase;font-size:18px}
+    .detail{background:#fffdf1}.detailGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.detailCard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow)}.detailCard h3{color:var(--green);text-transform:uppercase;margin-top:0}.detailCard ul{margin:0;padding-left:20px;font-weight:800}
+    .why{background:#f8fff1}.whyGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:n}.whyCard{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:48px 14px 18px;text-align:center;box-shadow:var(--shadow);font-weight:900;text-transform:uppercase}.whyCard:before{counter-increment:n;content:counter(n);position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:62px;height:62px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:32px;border:5px solid #fff}
+    .press{background:#fff}.pressGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.pressCard{background:#f7f7f7;border-radius:18px;padding:16px;border:1px solid #e5e5e5}.pressLogo{height:55px;border-radius:12px;background:#fff;display:grid;place-items:center;font-weight:900;color:#777;margin-bottom:10px}
+    .promo{background:linear-gradient(135deg,#fff4ab,#f4ffdc)}.dealGrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.deal{position:relative;background:#fff;border:3px solid #f1d238;border-radius:28px;padding:28px 20px;text-align:center;box-shadow:var(--shadow)}.tag{position:absolute;left:50%;top:-17px;transform:translateX(-50%);background:var(--red);color:#fff;padding:8px 20px;border-radius:999px;font-weight:900;text-transform:uppercase}.deal h3{color:var(--green);font-size:31px;text-transform:uppercase;margin:12px 0}.price{font-size:42px;color:var(--red);font-weight:900}
+    .order{background:#f5fff0}.orderGrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px}.box{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow)}.stock{display:flex;justify-content:center;gap:8px;border:2px solid var(--red);color:var(--red);font-weight:900;border-radius:999px;padding:12px;margin-bottom:16px}.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0}.time{background:var(--dark);color:#fff;border-radius:14px;text-align:center;padding:12px 4px}.time b{display:block;font-size:32px;line-height:1}
+    form{background:#fff;border:3px solid #f3d44b;border-radius:28px;padding:22px;box-shadow:var(--shadow)}form h2{margin:0 0 8px;color:var(--red);text-align:center;text-transform:uppercase}.field{width:100%;height:52px;border:1px solid #cfdccb;border-radius:12px;margin:8px 0;padding:0 14px;font-size:16px}textarea.field{height:88px;padding-top:14px}
+    .reviews{background:#fff}.commentWrap{max-width:940px;margin:auto;background:#f2f3f5;border:1px solid #dadde1;border-radius:12px;overflow:hidden}.commentHead{display:flex;justify-content:space-between;gap:10px;background:#fff;padding:14px 16px;border-bottom:1px solid #dadde1;font-weight:900}.comment{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:13px 16px}.avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#d5e8ff,#fff0ba);display:grid;place-items:center;font-size:23px}.bubble{background:#fff;border-radius:18px;padding:12px 14px}.bubble b{color:#24528a}.meta{font-size:13px;color:#687079;margin-top:4px}
+    .policy{background:#f8fff1}.policyGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.policyCard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:19px;text-align:center;box-shadow:var(--shadow)}.policyCard .ico{font-size:48px}
+    .warn{margin-top:24px;background:#fff0bb;border:1px solid #e1bf55;border-radius:18px;padding:16px;text-align:center;font-weight:900;color:#704b00}
+    footer{background:var(--dark);color:#eaffdf;padding:30px 0 88px}.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px}.sticky{position:fixed;left:14px;right:14px;bottom:12px;z-index:60;display:none}.phone{position:fixed;right:16px;bottom:86px;width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:28px;z-index:59;box-shadow:var(--shadow);animation:pulse 1.5s infinite}@keyframes pulse{50%{transform:scale(1.08)}}
+    @media(max-width:980px){.heroGrid,.benefitGrid,.detailGrid,.dealGrid,.orderGrid,.foot{grid-template-columns:1fr}.audGrid,.ingGrid,.whyGrid,.pressGrid,.policyGrid{grid-template-columns:repeat(2,1fr)}.nav a:not(.btn){display:none}}
+    @media(max-width:620px){.topin{height:60px}.brand small{display:none}.hero{padding-top:18px}.heroGrid{gap:12px}.heroVisual{min-height:455px}.bottle{width:230px;height:345px}.bottle:before{left:48px;width:134px;height:58px;top:-45px}.label{left:17px;right:17px;top:94px}.label strong{font-size:34px}.sale{width:98px;height:98px;font-size:23px;right:0;top:72px}.certs{position:relative;margin-top:18px}.giftRow,.audGrid,.ingGrid,.whyGrid,.pressGrid,.policyGrid,.bGrid{grid-template-columns:1fr}.audGrid,.ingGrid,.whyGrid,.pressGrid,.policyGrid,.bGrid{display:grid}.section,section{padding:40px 0}.sticky{display:block}.phone{bottom:82px}.time b{font-size:23px}}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="logo" href="#">
-        <span class="logo-mark">🌿</span>
-        <span>NATU LIFE<br><small>Sống khỏe mỗi ngày</small></span>
-      </a>
-      <div class="top-actions">
-        <span>☎ Hotline 1900 1234</span>
-        <span>🚚 Giao hàng toàn quốc</span>
-        <span>🛡️ Cam kết chính hãng</span>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Thực phẩm chức năng</div>
-          <h1>NATU LIVER</h1>
-          <p class="subtitle">Hỗ trợ giải độc gan<br>Tăng cường chức năng gan</p>
-          <ul class="check-list">
-            <li>Hỗ trợ bảo vệ tế bào gan, mát gan</li>
-            <li>Hỗ trợ tăng cường chức năng gan</li>
-            <li>Phù hợp người thường xuyên rượu bia, nóng trong</li>
-            <li>Thành phần rõ ràng, tư vấn sử dụng tận tâm</li>
-          </ul>
-
-          <div class="price-box">
-            <div class="old-price">Giá niêm yết: <s>890.000đ</s></div>
-            <div class="new-price">590.000đ <small>/ hộp</small></div>
-            <a class="btn" href="#order">🛒 ĐẶT HÀNG NGAY</a>
-          </div>
-        </div>
-
-        <div class="product-stage">
-          <div class="product-card">
-            <div class="product-label">
-              <small>SUPPORT LIVER HEALTH</small>
-              <b>NATU<br>LIVER</b>
-              <p>Milk Thistle • Actiso • Vitamin B</p>
-            </div>
-          </div>
-          <div class="discount">GIẢM<br>34%</div>
-        </div>
-
-        <aside class="trust-card">
-          <h3>6 lý do khách hàng tin dùng</h3>
-          <div class="trust-list">
-            <div class="trust-item"><span class="icon">1</span><span>Thành phần thiên nhiên, lành tính</span></div>
-            <div class="trust-item"><span class="icon">2</span><span>Hỗ trợ bảo vệ và phục hồi tế bào gan</span></div>
-            <div class="trust-item"><span class="icon">3</span><span>Hỗ trợ giải độc gan hiệu quả</span></div>
-            <div class="trust-item"><span class="icon">4</span><span>Sản xuất trên dây chuyền đạt chuẩn GMP</span></div>
-            <div class="trust-item"><span class="icon">5</span><span>Được kiểm định và công bố rõ ràng</span></div>
-            <div class="trust-item"><span class="icon">6</span><span>Tư vấn 24/7, giao hàng toàn quốc</span></div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="section-title">Sản phẩm phù hợp với</h2>
-        <div class="audience-grid">
-          <div class="audience-card">
-            <div class="audience-img">🍺</div>
-            <b>Người thường xuyên uống rượu bia</b>
-          </div>
-          <div class="audience-card">
-            <div class="audience-img">😓</div>
-            <b>Người mệt mỏi, nóng trong, chức năng gan suy giảm</b>
-          </div>
-          <div class="audience-card">
-            <div class="audience-img">🍟</div>
-            <b>Người ăn uống nhiều dầu mỡ, ít rau xanh</b>
-          </div>
-          <div class="audience-card">
-            <div class="audience-img">💊</div>
-            <b>Người dùng nhiều thuốc hoặc tiếp xúc hóa chất</b>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section style="background:#f3fbef">
-      <div class="container two-col">
-        <div class="benefit-visual">🫀</div>
-        <div class="card">
-          <h2 class="section-title" style="text-align:left;margin-bottom:18px">Công dụng nổi bật</h2>
-          <ul class="check-list">
-            <li>Hỗ trợ giải độc gan, bảo vệ tế bào gan khỏi tác nhân gây hại</li>
-            <li>Hỗ trợ tăng cường chức năng gan, giúp gan khỏe mạnh hơn</li>
-            <li>Hỗ trợ giảm tình trạng nóng trong, mẩn ngứa do chức năng gan kém</li>
-            <li>Hỗ trợ nâng cao sức khỏe, giảm cảm giác mệt mỏi</li>
-          </ul>
-          <p><em>* Hiệu quả tùy thuộc cơ địa, chế độ ăn uống và cách sử dụng của từng người.</em></p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container two-col">
-        <div class="card">
-          <h2 class="section-title" style="text-align:left">Thành phần chính</h2>
-          <table class="ingredient-table">
-            <tr><td>Silymarin</td><td>240mg</td></tr>
-            <tr><td>L-Arginine HCL</td><td>100mg</td></tr>
-            <tr><td>Chiết xuất Actiso</td><td>100mg</td></tr>
-            <tr><td>Chiết xuất Rau má</td><td>80mg</td></tr>
-            <tr><td>Vitamin B1</td><td>2mg</td></tr>
-            <tr><td>Vitamin B2</td><td>2mg</td></tr>
-            <tr><td>Vitamin B6</td><td>2mg</td></tr>
-          </table>
-        </div>
-        <div class="card">
-          <h2 class="section-title" style="text-align:left">Nguồn gốc rõ ràng</h2>
-          <p><b>Xuất xứ:</b> USA</p>
-          <p><b>Nhà sản xuất:</b> Nature's USA</p>
-          <p><b>Phân phối:</b> Công ty TNHH Natu Life</p>
-          <p><b>Số công bố:</b> 12345/2023/DKSP</p>
-          <div class="badge-row">
-            <span class="badge">GMP</span>
-            <span class="badge">ISO 22000</span>
-            <span class="badge">Tem QR</span>
-            <span class="badge">COD toàn quốc</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="container info-grid" style="margin-top:22px">
-        <div class="card">
-          <h3>Cách sử dụng</h3>
-          <p>Uống 1–2 viên/lần, ngày 2 lần sau ăn.</p>
-          <p>Nên dùng liên tục 2–3 tháng để hỗ trợ tốt hơn.</p>
-        </div>
-        <div class="card">
-          <h3>Lưu ý</h3>
-          <p>Không dùng cho người mẫn cảm với thành phần của sản phẩm. Phụ nữ có thai, cho con bú hoặc người đang điều trị bệnh nên hỏi ý kiến chuyên gia y tế trước khi dùng.</p>
-        </div>
-        <div class="card">
-          <h3>Kiểm tra chính hãng</h3>
-          <p>Quét mã QR trên bao bì để kiểm tra thông tin sản phẩm.</p>
-          <div style="width:110px;height:110px;background:repeating-linear-gradient(45deg,#111 0 6px,#fff 6px 12px);border:8px solid white;box-shadow:0 0 0 1px #ddd"></div>
-        </div>
-      </div>
-    </section>
-
-    <section style="background:#f8fff4">
-      <div class="container">
-        <h2 class="section-title">Khách hàng nói gì?</h2>
-        <div class="reviews">
-          <div class="card">
-            <div class="review-head"><div class="avatar">👨</div><div><b>Anh Minh - Hà Nội</b><div class="stars">★★★★★</div></div></div>
-            <p>Tôi dùng đều, cảm giác cơ thể nhẹ nhàng hơn. Tư vấn nhiệt tình, giao hàng nhanh.</p>
-          </div>
-          <div class="card">
-            <div class="review-head"><div class="avatar">👩</div><div><b>Chị Hương - Đà Nẵng</b><div class="stars">★★★★★</div></div></div>
-            <p>Sản phẩm dễ uống, có tem kiểm tra rõ ràng. Tôi mua combo cho cả nhà dùng.</p>
-          </div>
-          <div class="card">
-            <div class="review-head"><div class="avatar">👨</div><div><b>Anh Tùng - TP.HCM</b><div class="stars">★★★★★</div></div></div>
-            <p>Tôi thường xuyên tiếp khách nên chọn sản phẩm hỗ trợ chăm sóc gan hằng ngày.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="order" class="order-section">
-      <div class="container">
-        <h2 class="section-title">Ưu đãi đặc biệt hôm nay</h2>
-        <div class="combo-grid">
-          <div class="card combo">
-            <h3>Mua 1 hộp</h3>
-            <div class="mini-bottle"></div>
-            <div class="combo-price">590.000đ</div>
-            <p><s>890.000đ</s></p>
-            <a class="btn" href="#order-form">Đặt hàng</a>
-          </div>
-          <div class="card combo popular">
-            <h3>Mua 2 hộp</h3>
-            <div style="display:flex;justify-content:center;gap:8px"><div class="mini-bottle"></div><div class="mini-bottle"></div></div>
-            <div class="combo-price">1.080.000đ</div>
-            <p>Miễn phí ship</p>
-            <a class="btn" href="#order-form">Đặt hàng</a>
-          </div>
-          <div class="card combo">
-            <h3>Mua 3 hộp</h3>
-            <div style="display:flex;justify-content:center;gap:4px"><div class="mini-bottle"></div><div class="mini-bottle"></div><div class="mini-bottle"></div></div>
-            <div class="combo-price">1.590.000đ</div>
-            <p>Freeship + quà tặng</p>
-            <a class="btn" href="#order-form">Đặt hàng</a>
-          </div>
-
-          <form id="order-form" class="form-card">
-            <h2>Đặt hàng ngay</h2>
-            <p style="text-align:center;color:var(--muted);margin-top:0">Điền thông tin để được tư vấn và giao hàng nhanh nhất</p>
-            <input class="field" placeholder="Họ và tên *" required />
-            <input class="field" placeholder="Số điện thoại *" required />
-            <input class="field" placeholder="Địa chỉ nhận hàng *" required />
-            <select class="field">
-              <option>Chọn số lượng</option>
-              <option>1 hộp</option>
-              <option>2 hộp</option>
-              <option>3 hộp</option>
-              <option>Combo khác</option>
-            </select>
-            <textarea class="field" placeholder="Ghi chú nếu có"></textarea>
-            <button class="btn red" type="submit">🛒 ĐẶT HÀNG NGAY</button>
-            <p style="text-align:center;color:var(--muted);font-size:13px">🔒 Thông tin của bạn được bảo mật tuyệt đối</p>
-          </form>
-        </div>
-
-        <div class="faq">
-          <details>
-            <summary>Natu Liver có phải là thuốc không?</summary>
-            <p>Không. Đây là thực phẩm bảo vệ sức khỏe, không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.</p>
-          </details>
-          <details>
-            <summary>Bao lâu thì nhận được hàng?</summary>
-            <p>Thông thường 1–3 ngày tùy khu vực. Nhân viên sẽ gọi xác nhận trước khi gửi hàng.</p>
-          </details>
-          <details>
-            <summary>Có được kiểm tra hàng không?</summary>
-            <p>Có. Khách hàng được kiểm tra hàng trước khi thanh toán.</p>
-          </details>
-          <details>
-            <summary>Thanh toán như thế nào?</summary>
-            <p>Bạn có thể thanh toán khi nhận hàng hoặc chuyển khoản theo hướng dẫn của tư vấn viên.</p>
-          </details>
-        </div>
-
-        <div class="disclaimer">
-          Sản phẩm này không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h3>NATU LIFE</h3>
-        <p>Sống khỏe mỗi ngày với sản phẩm chăm sóc sức khỏe rõ nguồn gốc.</p>
-      </div>
-      <div>
-        <h3>Thông tin liên hệ</h3>
-        <p>Hotline: 1900 1234</p>
-        <p>Email: cskh@natulife.vn</p>
-        <p>Địa chỉ: 123 Đường ABC, TP.HCM</p>
-      </div>
-      <div>
-        <h3>Chính sách</h3>
-        <p>Chính sách bảo mật</p>
-        <p>Chính sách đổi trả</p>
-        <p>Điều khoản sử dụng</p>
-      </div>
-    </div>
-  </footer>
-
-  <div class="sticky-cta">
-    <a class="btn red" href="#order">🛒 ĐẶT HÀNG NGAY</a>
+<header class="top">
+  <div class="wrap topin">
+    <a class="brand" href="#"><span class="mark">🌿</span><span>NATU LIVER<br><small>Hỗ trợ giải độc gan</small></span></a>
+    <nav class="nav">
+      <a href="#congdung">Công dụng</a><a href="#thanhphan">Thành phần</a><a href="#uudai">Ưu đãi</a><a class="btn" href="#form">Mua ngay</a>
+    </nav>
   </div>
+</header>
 
-  <script>
-    document.getElementById("order-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Đã ghi nhận thông tin đặt hàng. Bạn có thể thay phần này bằng Google Form, Formspree hoặc API riêng.");
-    });
-  </script>
+<main>
+<section class="hero">
+  <div class="wrap heroGrid">
+    <div>
+      <div class="badges"><span class="badge red">Ưu đãi hôm nay</span><span class="badge">Đạt chuẩn GMP</span><span class="badge">Kiểm tra hàng trước thanh toán</span></div>
+      <h1>Giải độc gan<br>Natu Liver</h1>
+      <div class="heroSub">Hỗ trợ mát gan<br>bảo vệ chức năng gan</div>
+      <ul class="heroList">
+        <li>Hỗ trợ giải độc gan, mát gan, tăng cường chức năng gan.</li>
+        <li>Hỗ trợ giảm tình trạng nóng trong, mệt mỏi do chức năng gan kém.</li>
+        <li>Phù hợp người thường xuyên rượu bia, ăn nhiều dầu mỡ, sinh hoạt thất thường.</li>
+        <li>Thành phần rõ ràng, tư vấn sử dụng theo từng tình trạng.</li>
+      </ul>
+      <div class="giftRow">
+        <div class="gift"><b>Mua 3<br>Tặng 1</b><span>Miễn phí vận chuyển</span></div>
+        <div class="gift"><b>Mua 5<br>Tặng 2</b><span>Ưu đãi tiết kiệm nhất</span></div>
+      </div>
+      <p style="margin:18px 0 0"><a class="btn" href="#form">Đặt hàng ngay</a></p>
+    </div>
+    <div class="heroVisual">
+      <div class="sun"></div><div class="sale">Sale<br>34%</div>
+      <div class="bottle"><div class="label"><small>USA FORMULA</small><strong>Natu<br>Liver</strong><small>Silymarin • Actiso • Vitamin B</small></div></div>
+      <div class="certs"><div class="cert">🏆 Sản phẩm<br>chính hãng</div><div class="cert">✅ Tư vấn<br>miễn phí</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="media">
+  <div class="wrap">
+    <h2 class="title">Video giới thiệu <span>sản phẩm</span></h2>
+    <div class="video"><div class="play">▶</div></div>
+    <p style="max-width:850px;margin:20px auto 0;text-align:center;font-size:18px;font-weight:800;color:var(--muted)">Natu Liver được phát triển với nhóm thành phần hỗ trợ gan như Silymarin, Actiso, Glutathione, Vitamin C và Vitamin nhóm B, phù hợp để chăm sóc sức khỏe gan hằng ngày.</p>
+  </div>
+</section>
+
+<section class="audience">
+  <div class="wrap">
+    <h2 class="title">Natu Liver phù hợp với <span>những ai?</span></h2>
+    <div class="audGrid">
+      <div class="aud"><div class="pic">🍺</div><h3>Người thường xuyên rượu bia</h3></div>
+      <div class="aud"><div class="pic">😓</div><h3>Người hay mệt mỏi, nóng trong</h3></div>
+      <div class="aud"><div class="pic">🍔</div><h3>Người ăn nhiều dầu mỡ</h3></div>
+      <div class="aud"><div class="pic">💊</div><h3>Người cần hỗ trợ chức năng gan</h3></div>
+    </div>
+    <p style="text-align:center;margin-top:22px"><a class="btn green" href="#form">Nhận tư vấn miễn phí</a></p>
+  </div>
+</section>
+
+<section id="congdung" class="benefits">
+  <div class="wrap benefitGrid">
+    <div class="liver">🫀</div>
+    <div>
+      <h2 class="title" style="text-align:left;margin-bottom:20px">Công dụng nổi bật của <span>Natu Liver</span></h2>
+      <div class="bGrid">
+        <div class="bItem"><b>Hỗ trợ giải độc gan</b><p>Hỗ trợ quá trình đào thải độc tố, giảm áp lực chuyển hóa cho gan.</p></div>
+        <div class="bItem"><b>Hỗ trợ mát gan</b><p>Hỗ trợ giảm cảm giác nóng trong do chức năng gan kém.</p></div>
+        <div class="bItem"><b>Hỗ trợ bảo vệ gan</b><p>Hỗ trợ bảo vệ tế bào gan trước tác nhân gây hại từ rượu bia, dầu mỡ.</p></div>
+        <div class="bItem"><b>Hỗ trợ tăng cường sức khỏe</b><p>Góp phần giảm mệt mỏi và duy trì thể trạng tốt hơn.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="thanhphan" class="ingredients">
+  <div class="wrap">
+    <h2 class="title">Thành phần hỗ trợ <span style="color:#fff169">chăm sóc gan</span></h2>
+    <div class="ingGrid">
+      <div class="ing"><div class="ico">🌱</div><h3>Silymarin</h3><p>Hỗ trợ bảo vệ tế bào gan.</p></div>
+      <div class="ing"><div class="ico">🌿</div><h3>Actiso</h3><p>Hỗ trợ mát gan, thanh nhiệt.</p></div>
+      <div class="ing"><div class="ico">💎</div><h3>Glutathione</h3><p>Hỗ trợ chống oxy hóa.</p></div>
+      <div class="ing"><div class="ico">🍋</div><h3>Vitamin C</h3><p>Hỗ trợ tăng đề kháng.</p></div>
+      <div class="ing"><div class="ico">⚡</div><h3>Vitamin B1</h3><p>Hỗ trợ chuyển hóa năng lượng.</p></div>
+      <div class="ing"><div class="ico">⚡</div><h3>Vitamin B2</h3><p>Hỗ trợ giảm mệt mỏi.</p></div>
+      <div class="ing"><div class="ico">⚡</div><h3>Vitamin B6</h3><p>Hỗ trợ chức năng thần kinh.</p></div>
+      <div class="ing"><div class="ico">🧬</div><h3>L-Ornithine</h3><p>Hỗ trợ chuyển hóa tại gan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="detail">
+  <div class="wrap">
+    <h2 class="title">Thông tin <span>sản phẩm</span></h2>
+    <div class="detailGrid">
+      <div class="detailCard"><h3>Thông tin công bố</h3><ul><li>Xuất xứ: USA / Việt Nam / Theo sản phẩm thật</li><li>Nhà sản xuất: Thay bằng đơn vị thật</li><li>Đơn vị phân phối: Thay bằng công ty thật</li><li>Số công bố: Thay bằng số công bố thật</li></ul></div>
+      <div class="detailCard"><h3>Hướng dẫn sử dụng</h3><ul><li>Ngày dùng 1–2 lần sau ăn.</li><li>Dùng đều theo hướng dẫn của tư vấn viên.</li><li>Người đang điều trị bệnh nên hỏi ý kiến chuyên gia y tế trước khi dùng.</li><li>Không dùng nếu mẫn cảm với bất kỳ thành phần nào.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <h2 class="title">Vì sao nên lựa chọn <span>Natu Liver?</span></h2>
+    <div class="whyGrid">
+      <div class="whyCard">Thành phần rõ ràng, dễ kiểm tra</div>
+      <div class="whyCard">Sản xuất theo quy trình đạt chuẩn</div>
+      <div class="whyCard">Tư vấn trước khi sử dụng</div>
+      <div class="whyCard">Giao hàng toàn quốc, thanh toán COD</div>
+      <div class="whyCard">Cam kết sản phẩm chính hãng</div>
+    </div>
+  </div>
+</section>
+
+<section class="press">
+  <div class="wrap">
+    <h2 class="title">Thông tin truyền thông & <span>chứng nhận</span></h2>
+    <div class="pressGrid">
+      <div class="pressCard"><div class="pressLogo">LOGO BÁO / KÊNH</div><p>Placeholder khu vực dẫn nguồn bài viết, video hoặc chứng nhận thật của sản phẩm.</p></div>
+      <div class="pressCard"><div class="pressLogo">GIẤY CÔNG BỐ</div><p>Chèn ảnh giấy công bố, phiếu kiểm nghiệm hoặc mã QR kiểm tra chính hãng.</p></div>
+      <div class="pressCard"><div class="pressLogo">NHÀ MÁY GMP</div><p>Chèn ảnh nhà máy, chứng nhận GMP/ISO nếu sản phẩm có đầy đủ hồ sơ.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="uudai" class="promo">
+  <div class="wrap">
+    <h2 class="title">Ưu đãi đặc biệt <span>hôm nay</span></h2>
+    <div class="dealGrid">
+      <div class="deal"><div class="tag">Miễn phí vận chuyển</div><h3>Mua 3 hộp tặng 1 hộp</h3><p>Phù hợp dùng theo liệu trình chăm sóc gan.</p><div class="price">645.000đ</div><p><a class="btn" href="#form">Đặt combo này</a></p></div>
+      <div class="deal"><div class="tag">Tiết kiệm nhất</div><h3>Mua 5 hộp tặng 2 hộp</h3><p>Phù hợp mua cho gia đình hoặc duy trì dài hơn.</p><div class="price">1.075.000đ</div><p><a class="btn" href="#form">Đặt combo này</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="order">
+  <div class="wrap orderGrid">
+    <div class="box">
+      <h2 class="title" style="margin-bottom:10px">Số lượng ưu đãi có hạn</h2>
+      <div class="stock">🔥 Chỉ còn 25 suất ưu đãi hôm nay</div>
+      <h3 style="text-align:center">Khuyến mãi kết thúc sau:</h3>
+      <div class="timer"><div class="time"><b id="d">00</b><span>Ngày</span></div><div class="time"><b id="h">00</b><span>Giờ</span></div><div class="time"><b id="m">00</b><span>Phút</span></div><div class="time"><b id="s">00</b><span>Giây</span></div></div>
+      <p><b>Bảng giá tham khảo:</b></p>
+      <p>1 hộp: 215.000đ + phí vận chuyển</p><p>2 hộp: 430.000đ, miễn phí vận chuyển</p><p>3 hộp: 645.000đ + tặng 1 hộp</p><p>5 hộp: 1.075.000đ + tặng 2 hộp</p>
+    </div>
+    <form id="form">
+      <h2>Đăng ký tư vấn<br>và đặt hàng</h2>
+      <input class="field" required placeholder="Họ và tên *">
+      <input class="field" required placeholder="Số điện thoại *">
+      <input class="field" required placeholder="Địa chỉ nhận hàng *">
+      <select class="field"><option>Chọn combo muốn đặt</option><option>1 hộp</option><option>2 hộp</option><option>3 hộp tặng 1</option><option>5 hộp tặng 2</option></select>
+      <textarea class="field" placeholder="Tình trạng cần tư vấn / ghi chú"></textarea>
+      <button class="btn full" type="submit">Gửi thông tin đặt hàng</button>
+      <p style="text-align:center;color:var(--muted);font-size:13px">Nhân viên sẽ gọi xác nhận trước khi giao hàng. Không mua không sao.</p>
+    </form>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <h2 class="title">Khách hàng <span>đánh giá</span></h2>
+    <div class="commentWrap">
+      <div class="commentHead"><span>Bình luận của khách hàng</span><span>10.354 bình luận</span></div>
+      <div class="comment"><div class="avatar">👨</div><div><div class="bubble"><b>Trần Anh</b><p>Mình dùng theo hướng dẫn, thấy người nhẹ nhàng hơn. Giao hàng nhanh, đóng gói cẩn thận.</p></div><div class="meta">3 giờ trước · Thích · Phản hồi</div></div></div>
+      <div class="comment"><div class="avatar">👩</div><div><div class="bubble"><b>Hương Nguyễn</b><p>Tư vấn rõ ràng, có kiểm tra hàng trước thanh toán nên khá yên tâm.</p></div><div class="meta">2 giờ trước · Thích · Phản hồi</div></div></div>
+      <div class="comment"><div class="avatar">👨</div><div><div class="bubble"><b>Minh Tuấn</b><p>Mình hay tiếp khách nên mua combo dùng thử để hỗ trợ chăm sóc gan hằng ngày.</p></div><div class="meta">1 giờ trước · Thích · Phản hồi</div></div></div>
+      <div class="comment"><div class="avatar">🌿</div><div><div class="bubble"><b>Natu Liver - CSKH</b><p>Cảm ơn anh/chị đã tin tưởng. Bên em luôn hỗ trợ trong quá trình sử dụng ạ.</p></div><div class="meta">45 phút trước · Thích · Phản hồi</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="policy">
+  <div class="wrap">
+    <h2 class="title">Chính sách <span>cam kết</span></h2>
+    <div class="policyGrid">
+      <div class="policyCard"><div class="ico">🚚</div><h3>Giao hàng toàn quốc</h3><p>Miễn phí vận chuyển theo combo ưu đãi.</p></div>
+      <div class="policyCard"><div class="ico">💵</div><h3>Thanh toán COD</h3><p>Nhận hàng, kiểm tra rồi mới thanh toán.</p></div>
+      <div class="policyCard"><div class="ico">📦</div><h3>Kiểm tra hàng</h3><p>Được kiểm tra sản phẩm trước khi nhận.</p></div>
+      <div class="policyCard"><div class="ico">👩‍⚕️</div><h3>Tư vấn miễn phí</h3><p>Đồng hành trong quá trình sử dụng.</p></div>
+    </div>
+    <div class="warn">Sản phẩm này không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><h3>NATU LIVER</h3><p>Template landing page. Thay bằng thông tin thương hiệu, giấy phép, địa chỉ và hotline thật.</p></div>
+    <div><h3>Liên hệ</h3><p>Hotline: 0386 884 351</p><p>Địa chỉ: Thay bằng địa chỉ thật</p></div>
+    <div><h3>Chính sách</h3><p>Chính sách bảo mật</p><p>Chính sách đổi trả</p><p>Điều khoản sử dụng</p></div>
+  </div>
+</footer>
+
+<a class="phone" href="tel:0386884351">☎</a>
+<div class="sticky"><a class="btn full" href="#form">Đặt hàng ngay</a></div>
+
+<script>
+  const end = new Date(); end.setHours(end.getHours()+3);
+  function pad(n){return String(n).padStart(2,"0")}
+  function tick(){
+    const left=Math.max(0,end-new Date());
+    document.getElementById("d").textContent=pad(Math.floor(left/86400000));
+    document.getElementById("h").textContent=pad(Math.floor(left/3600000)%24);
+    document.getElementById("m").textContent=pad(Math.floor(left/60000)%60);
+    document.getElementById("s").textContent=pad(Math.floor(left/1000)%60);
+  }
+  tick(); setInterval(tick,1000);
+  document.getElementById("form").addEventListener("submit",e=>{e.preventDefault();alert("Đã nhận thông tin. Bạn có thể nối form với Google Forms, Formspree hoặc API riêng.")});
+</script>
 </body>
 </html>
